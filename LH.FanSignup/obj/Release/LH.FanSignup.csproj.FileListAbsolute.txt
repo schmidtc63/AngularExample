@@ -1,0 +1,13 @@
+C:\inetpub\wwwroot\dotnetnuke\bin\LH.FanSignup.dll.config
+C:\inetpub\wwwroot\dotnetnuke\bin\LH.FanSignup.dll
+C:\inetpub\wwwroot\dotnetnuke\bin\LH.FanSignup.pdb
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\IMT.LH.FanSignup.App_LocalResources.Settings.resources
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\LH.FanSignup.csproj.GenerateResource.cache
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\LH.FanSignup.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\LH.FanSignup.csproj.CopyComplete
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\LH.FanSignup.dll
+C:\inetpub\wwwroot\dotnetnuke\DesktopModules\MVC\LH.FanSignup\obj\Release\LH.FanSignup.pdb
+C:\inetpub\wwwroot\dotnetnuke\bin\SqlServerTypes\x64\msvcr120.dll
+C:\inetpub\wwwroot\dotnetnuke\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\inetpub\wwwroot\dotnetnuke\bin\SqlServerTypes\x86\msvcr120.dll
+C:\inetpub\wwwroot\dotnetnuke\bin\SqlServerTypes\x86\SqlServerSpatial140.dll

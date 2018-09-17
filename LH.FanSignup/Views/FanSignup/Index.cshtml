@@ -1,0 +1,78 @@
+﻿@* ReSharper disable MarkupAttributeTypo *@
+@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IMT.LH.FanSignup.Models.FanSignup>
+
+
+<script src="/DesktopModules/RazorCart/Core/Content/Scripts/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+<script src="/DesktopModules/MVC/LH.FanSignup/Scripts/FanSignup.js"></script>
+
+<div ng-show="showMain" ng-form="dvFanSignup" data-ng-app="FanSignupApp" data-ng-controller="FanSignupCtl" name="dvFanSignup" id="dvFanSignup" data-ng-init="getSignup()">
+    Thanks for your interest in Locally Heard!<br/>
+    You can sign up for our email/newsletter list to keep you current on new developments, new bands, etc. in the Locally Heard community.
+
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Fan Info" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" template-url="/desktopmodules/mvc/lh.fansignup/scripts/accordion-group.html">
+            <div id="dvFanInfo" name="dvFanInfo">
+                <span style="float: left; min-width: 200px">First Name:</span><span style="float: left"><input type="text" data-ng-model="signupInfo.Fan.FirstName" name="FanFirstName" style="float: left" required></span><span style="color: red">{{(dvFanSignup.FanFirstName.$error.required)?"*":""}}</span><br style="clear: both"/>
+                <span style="float: left; min-width: 200px">Last Name:</span><span style="float: left"><input type="text" data-ng-model="signupInfo.Fan.LastName" name="FanLastName" style="float: left" required=""></span><span style="color: red">{{(dvFanSignup.FanLastName.$error.required)?"*":""}}</span><br style="clear: both"/>
+                <span style="float: left; min-width: 200px">Email:</span><span style="float: left"><input type="email" name="FanEmailAddress" id="FanEmailAddress" data-ng-model="signupInfo.Fan.EmailAddress" style="float: left" ng-pattern="emailFormat" required><span style="color: red">{{(!dvFanSignup.FanEmailAddress.$valid)?"*":""}}</span></span><br style="clear: both"/>
+                <div style="color: red; padding: 0; margin: 0">&nbsp;
+                    <span style="padding: 0; margin: 0" ng-show="showErrors&&(dvFanSignup.$error.required||!dvFanSignup.FanEmailAddress.$valid)">
+                        <span class="error" ng-show="!Status">
+                            Error: {{Message}}
+                        </span><span style="min-width: 40px">&nbsp;</span>
+                        <span class="error" ng-show="dvFanSignup.$error.required">
+                            Please fill out all required fields.
+                        </span><span style="min-width: 40px">&nbsp;</span>
+                        <span class="error" ng-show="!dvFanSignup.FanEmailAddress.$valid">
+                            Email address is invalid.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div style="display: none">
+                <tt>Email Address Valid = {{dvFanSignup.FanEmailAddress.$valid}}</tt><br/>
+                <tt>Email Address error = {{dvFanSignup.FanEmailAddress.$error}}</tt><br/>
+                <tt>Form email all error = {{!!dvFanSignup.$error.email}}</tt><br/>
+                <tt>Form email all pattern = {{!!dvFanSignup.$error.pattern}}</tt><br/>
+                <tt>Form Is Valid = {{dvFanSignup.$valid}}</tt><br/>
+                <tt>dvFanSignup.$error.required = {{!!dvFanSignup.$error.required}}</tt><br/>
+                <tt>First Name Required = {{dvFanSignup.FanFirstName.$error.required}}</tt><br/>
+                <tt>Last Name Required = {{dvFanSignup.FanLastName.$error.required}}</tt><br/>
+                <tt>Form Required Error = {{!!dvFanSignup.$error.required}}</tt><br/>
+            </div>
+        </accordion-group>
+        <accordion-group heading="Regions -- Pick some areas of the country by state or geograpic region" template-url="/desktopmodules/mvc/lh.fansignup/scripts/accordion-group.html">
+            <div data-ng-repeat="region in signupInfo.FanToRegions">
+                <input type="checkbox" ng-model="region.selected" value="region.selected"/> {{region.Title}}
+            </div>
+        </accordion-group>
+        <accordion-group heading="Associations -- These are bands who get together to show off their talents." template-url="/desktopmodules/mvc/lh.fansignup/scripts/accordion-group.html">
+            <div data-ng-repeat="association in signupInfo.FanToAssociations">
+                <input type="checkbox" ng-model="association.selected" value="association.selected"/> {{association.Title}}
+            </div>
+        </accordion-group>
+        <accordion-group heading="Genres -- What kind of music do you like?" template-url="/desktopmodules/mvc/lh.fansignup/scripts/accordion-group.html">
+            <div data-ng-repeat="genre in signupInfo.FanToGenres">
+                <input type="checkbox" ng-model="genre.selected" value="fenre.selected"/> {{genre.Title}}
+            </div>
+        </accordion-group>
+        <accordion-group heading="Bands -- Follow your favorite bands!" is-open="status.open" template-url="/desktopmodules/mvc/lh.fansignup/scripts/accordion-group.html">
+            <div data-ng-repeat="band in signupInfo.FanToArtists">
+                <input type="checkbox" ng-model="band.selected" value="band.selected"/> {{band.ArtistName}}
+            </div>
+        </accordion-group>
+    </accordion>
+    <input type="button" Value="Save" data-ng-click="saveSignup()"/><input type="button" value="Clear" data-ng-click="resetForm()"/><br/>
+</div>
+
+<script type="text/javascript">
+    const moduleId = '@Dnn.ModuleContext.ModuleId';
+    const tabId = '@Dnn.ModuleContext.TabId';
+    $("#dvFanSignup").hide();
+    $(document).ready(function() {
+        $("#dvFanSignup").show();
+    });
+</script>
